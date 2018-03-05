@@ -1,0 +1,118 @@
+/* 
+ * Gradle build file per una semplice applicazione Java, mono-progetto. 
+ * 
+ * Diversamente da altri build file in questa sezione, 
+ * contiene il supporto per Spring, 
+ * con le dipendenze di compilazione, rilascio ed esecuzione, 
+ * ed un modo diverso di creare la distribuzione 
+ * (anche se sicuramente si puo' fare di meglio). 
+ * 
+ * - gradle build compila, crea i jar e prepara la distribuzione 
+ * - gradle run manda in esecuzione l'applicazione 
+ * - gradle clean cancella i jar file e la distribuzione 
+ */ 
+ 
+apply plugin: 'java'
+
+repositories {
+    flatDir { 
+       dirs "../../libraries"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'org.springframework:spring-context:4.3.14.RELEASE'
+    runtime 'org.springframework:spring-context:4.3.14.RELEASE'
+    archives 'org.springframework:spring-context:4.3.14.RELEASE'
+}
+
+apply plugin: 'application'     
+mainClassName = "asw.intro.main.Main"
+applicationDefaultJvmArgs = ["-Djava.util.logging.config.file=dist/logging.properties"]
+
+configurations {
+    libs
+}
+	
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+apply plugin: 'distribution' 
+distTar.enabled = false 
+
+distributions {
+    main {
+        baseName = archivesBaseName 
+            
+        contents {
+            from { libsDir }
+        }
+    }
+}    
+
+/* 
+ * DISTRIBUZIONE e BUILD 
+ */ 
+
+// copia nella cartella dist i file zip della distribuzione del progetto  
+task copyAppDistribution(type: Copy, dependsOn: subprojects.build) {
+    setIncludeEmptyDirs(false)
+    from buildDir  
+    include 'distributions/*.zip'
+    into 'dist'
+    eachFile { f -> 
+        // println f.path 
+        def targetPath = plainPath(f.path) 
+        f.path = targetPath
+    }
+}
+
+// trasforma il path distributions/xxx.xxx in xxx.xxx 
+def plainPath(def path) {
+    def modified = path.replaceAll('distributions/', {""})
+    return modified
+}
+
+// scompatta i file zip della distribuzione 
+task unzipAppDistribution(type: Copy, dependsOn: copyAppDistribution) {
+    from ( zipTree('dist/app.zip') ) 
+    into 'dist' 
+}
+
+task deleteAppDistribution(type: Delete, dependsOn: unzipAppDistribution) {
+    delete fileTree('dist') {
+        include '*.zip'
+    }
+}
+
+// copia nella cartella dist tutte le risorse (script e file di configurazione) 
+task copyAppResources(type: Copy) {
+    from 'src/main/resources' 
+    into 'dist'
+}
+
+// copia tutti i file di interesse nella cartella dist 
+task buildDist(dependsOn: [unzipAppDistribution, deleteAppDistribution, copyAppResources]) {
+}
+
+// modifica il task build, per copiare tutti i file di interesse nella cartella dist 
+build.dependsOn buildDist
+
+/* 
+ * CLEAN 
+ */ 
+
+// cancella la cartella dist 
+task cleanDist(type: Delete) {
+    delete 'dist'
+}
+
+// modifica il task clean, per cancellare la cartella dist 
+clean.dependsOn cleanDist
+
+

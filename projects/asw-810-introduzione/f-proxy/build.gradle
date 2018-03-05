@@ -1,0 +1,78 @@
+/* 
+ * Gradle build file per una semplice applicazione Java, mono-progetto. 
+ * 
+ * - gradle build compila, crea i jar e prepara la distribuzione 
+ * - gradle run manda in esecuzione l'applicazione 
+ * - gradle clean cancella i jar file e la distribuzione 
+ */ 
+ 
+apply plugin: 'java'
+
+repositories {
+    flatDir { 
+       dirs "../../libraries"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+apply plugin: 'application'     
+mainClassName = "asw.intro.main.Main"
+applicationDefaultJvmArgs = ["-Djava.util.logging.config.file=dist/logging.properties"]
+
+configurations {
+    libs
+}
+	
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+/* 
+ * DISTRIBUZIONE e BUILD 
+ */ 
+
+// copia nella cartella dist(libs) il file jar del progetto  
+task copyAppJarFiles(type: Copy, dependsOn: assemble) {
+    from buildDir  
+    include 'libs/**'
+    into 'dist'
+}
+
+// copia nella cartella dist tutte le risorse (script e file di configurazione) 
+task copyAppResources(type: Copy) {
+    from 'src/main/resources' 
+    into 'dist'
+}
+
+// copia nella cartella dist i file jar delle librerie di interesse  
+task copyLibFiles(type: Copy) {
+    from configurations.libs 
+    into 'dist/libs'
+}
+
+// copia tutti i file di interesse nella cartella dist 
+task buildDist(dependsOn: [copyAppJarFiles, copyAppResources, copyLibFiles, installDist]) {
+}
+
+// modifica il task build, per copiare tutti i file di interesse nella cartella dist 
+build.dependsOn buildDist
+
+/* 
+ * CLEAN 
+ */ 
+
+// cancella la cartella dist 
+task cleanDist(type: Delete) {
+    delete 'dist'
+}
+
+// modifica il task clean, per cancellare la cartella dist 
+clean.dependsOn cleanDist
+
+

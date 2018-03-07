@@ -16,8 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # folder per i progetti Asw (/home/asw/projects)
     config.vm.synced_folder "../../projects/", "/home/asw/projects", :mount_options => ["dmode=777", "fmode=777"]
 
-    # folder per le risorse condivise per gli ambienti Asw (/home/asw/shared/resources e /home/vagrant/shared/scripts) 
-    config.vm.synced_folder "../shared/", "/home/asw/shared", :mount_options => ["dmode=777", "fmode=777"]
+    # folder per le risorse condivise per gli ambienti Asw (/home/asw/_shared/resources e /home/asw/_shared/scripts) 
+    config.vm.synced_folder "../_shared/", "/home/asw/_shared", :mount_options => ["dmode=777", "fmode=777"]
 
     #
     # Configurazione del nodo "server", che prevede: 
@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
         # provisioning con bash 
         node.vm.provision :shell, :inline => 'apt-get update'
-        node.vm.provision :shell, path: "../shared/scripts/setup-java.sh"
+        node.vm.provision :shell, path: "../_shared/scripts/setup-java.sh"
         node.vm.provision :shell, :inline => "echo '10.11.1.101 server' >> /etc/hosts"
         node.vm.provision :shell, :inline => "echo '10.11.1.201 client' >> /etc/hosts"
   
@@ -69,7 +69,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
         # provisioning con bash 
         node.vm.provision :shell, :inline => 'apt-get update'
-        node.vm.provision :shell, path: "../shared/scripts/setup-java.sh"
+        node.vm.provision :shell, path: "../_shared/scripts/setup-java.sh"
         node.vm.provision :shell, :inline => "echo '10.11.1.101 server' >> /etc/hosts"
         node.vm.provision :shell, :inline => "echo '10.11.1.201 client' >> /etc/hosts"
 

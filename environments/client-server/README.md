@@ -11,7 +11,7 @@ La macchina virtuale **server**
 è pensata per l'esecuzione di semplici applicazioni Java *lato server*, 
 ed ha il seguente software: 
 
-* Ubuntu Trusty (14.04 LTS) a 64 bit 
+* Ubuntu 16.04 LTS a 64 bit (by Bento) 
 
 * Oracle Java SDK 
 
@@ -27,7 +27,7 @@ La macchina virtuale **client**
 è pensata per l'esecuzione di semplici applicazioni Java *lato client*, 
 ed ha il seguente software: 
 
-* Ubuntu Trusty (14.04 LTS) a 64 bit 
+* Ubuntu 16.04 LTS a 64 bit (by Bento) 
 
 * Oracle Java SDK 
   

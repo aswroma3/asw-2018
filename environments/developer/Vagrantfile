@@ -2,8 +2,6 @@
 # Vagrantfile per un singolo nodo (dev, developer) 
 # per la compilazione dei progetti, 
 # con Oracle Java, Gradle e Maven. 
-#
-# Versione per Ubuntu Trusty (14.04 LTS)  
 # 
 
 VAGRANTFILE_API_VERSION = "2"
@@ -11,12 +9,9 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Configurazioni comuni.
 
-    # Ubuntu Trusty (14.04 LTS) 64 bit VirtualBox.
-    config.vm.box = "ubuntu/trusty64"
-    # config.vm.box_url = "https://app.vagrantup.com/ubuntu/boxes/trusty64"
-
-	# in Ubuntu Trusty, l'utente di default e' vagrant (e non ubuntu) 
-	# config.ssh.username = "ubuntu" 
+    # Ubuntu 16.04 LTS 64 bit VirtualBox (Bento)
+    config.vm.box = "bento/ubuntu-16.04"
+    # config.vm.box_url = "https://app.vagrantup.com/bento/boxes/ubuntu-16.04"
 	
     # folder per i progetti Asw (/home/asw/projects)
     config.vm.synced_folder "../../projects/", "/home/asw/projects", :mount_options => ["dmode=777", "fmode=777"]
@@ -46,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.network "forwarded_port", guest: 22, host: 2222, id: 'ssh', auto_correct: true 
         node.ssh.forward_agent = true
  
-        # in alcuni casi è la pubblicazione della porta 8080 di dev (su 8088)
+        # in alcuni casi è utile la pubblicazione della porta 8080 di dev (su 8088)
         node.vm.network "forwarded_port", guest: 8080, host: 8088, id: 'http', auto_correct: true
 
         # provisioning con bash 

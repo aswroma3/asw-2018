@@ -10,7 +10,7 @@ E' composto da una sola macchina virtuale **dev** (*developer*).
 
 La macchina virtuale **dev** ha il seguente software 
 
-* Ubuntu Trusty (14.04 LTS) a 64 bit 
+* Ubuntu 16.04 LTS a 64 bit (by Bento) 
 
 * Oracle Java SDK 
   

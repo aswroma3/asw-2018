@@ -81,9 +81,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-810-introduzione](asw-810-introduzione/): introduzione ai connettori  
 
-<!---
 * [asw-820-socket](asw-820-socket/): socket e comunicazione client-server 
 
+<!---
 * [asw-830-java-rmi](asw-830-java-rmi/): oggetti distribuiti e invocazione remota con *Java RMI* 
 
 * [asw-840-jms](asw-840-jms/): comunicazione asincrona con *JMS* 

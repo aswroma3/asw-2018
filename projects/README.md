@@ -97,14 +97,14 @@ ed è descritta nell'ambito dei singoli progetti.
   nient'altro da escludere 
 -->
 
-<!---
 ## Progetti Spring 
 
-* [asw-880-spring](asw-880-spring/): introduzione al framework *Spring* 
+* [asw-870-spring-framework](asw-870-spring-framework/): introduzione al framework *Spring* 
 
-* [asw-882-spring-boot](asw-882-spring-boot/): introduzione a *Spring Boot* 
+<!---
+* [asw-872-spring-boot](asw-872-spring-boot/): introduzione a *Spring Boot* 
 
-* [asw-885-spring-cloud](asw-885-spring-cloud/): introduzione a *Spring Cloud* 
+* [asw-875-spring-cloud](asw-875-spring-cloud/): introduzione a *Spring Cloud* 
 -->
 
 <!---

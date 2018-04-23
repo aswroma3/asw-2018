@@ -85,9 +85,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-830-java-rmi](asw-830-java-rmi/): oggetti distribuiti e invocazione remota con *Java RMI* 
 
-<!---
-* [asw-840-jms](asw-840-jms/): comunicazione asincrona con *JMS* 
+* [asw-840-jms](asw-840-jms/): comunicazione asincrona con *Java Message Service* (*JMS*) 
 
+<!---
 * [asw-850-ejb](asw-850-ejb/): Componenti *Enterprise Java Bean* (*EJB*) 
 
 * [asw-860-jax-ws](asw-860-jax-ws/): servizi web *SOAP* con *JAX-WS* 
@@ -117,7 +117,6 @@ ed è descritta nell'ambito dei singoli progetti.
 * [asw-660-docker-su-swarm](asw-660-docker-su-swarm/): rilascio di un'applicazione multi-servizi e multi-contenitori sullo swarm *swarm.inf.uniroma3.it*
 -->
 
-<!---
 ## Libreria 
 
 Questa sezione del repository contiene anche delle librerie usate 
@@ -126,4 +125,5 @@ da alcune di queste applicazioni.
 * [asw-libraries](asw-libraries/): il codice sorgente delle librerie
 
 * [libraries](libraries/): i file jar delle librerie  
+<!---
 -->

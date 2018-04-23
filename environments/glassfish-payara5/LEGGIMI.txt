@@ -1,0 +1,11 @@
+Glassfish Java EE Server 
+
+Payara Server versione 5.181 (full)
+
+Una distribuzione basata su Oracle Glassfish (questa su 5.0, Java EE 8), 
+ma con rilasci trimestrali. 
+
+Ad esempio, risolve il problema della libreria org.eclipse.persistence.moxy.jar. 
+
+Salvo una diversa organizzazione delle cartelle, sembra perfettamente compatibile. 
+

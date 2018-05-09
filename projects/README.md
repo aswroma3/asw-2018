@@ -107,6 +107,13 @@ ed è descritta nell'ambito dei singoli progetti.
 * [asw-875-spring-cloud](asw-875-spring-cloud/): introduzione a *Spring Cloud* 
 -->
 
+## Progetti Vagrant 
+
+* [asw-880-gestione-ambienti-virtuali](asw-880-gestione-ambienti-virtuali/): gestione di ambienti virtuali con *Vagrant* e *Oracle VM VirtualBox* 
+
+<!---
+-->
+
 <!---
 ## Progetti Docker 
 

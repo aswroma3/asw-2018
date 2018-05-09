@@ -109,7 +109,7 @@ ed è descritta nell'ambito dei singoli progetti.
 
 ## Progetti Vagrant 
 
-* [asw-880-gestione-ambienti-virtuali](asw-880-gestione-ambienti-virtuali/): gestione di ambienti virtuali con *Vagrant* e *Oracle VM VirtualBox* 
+* [asw-880-strumenti-ambienti-virtuali](asw-880-strumenti-ambienti-virtuali/): gestione di ambienti virtuali con *Vagrant* e *Oracle VM VirtualBox* 
 
 <!---
 -->

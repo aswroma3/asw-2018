@@ -1,8 +1,9 @@
-# asw-880-gestione-ambienti-virtuali
+# asw-880-strumenti-ambienti-virtuali
 
 Questo "progetto" contiene la definizione di tre diversi *ambienti virtuali*, 
-tutti basati su **Vagrant** e l'uso di **Oracle VM VirtualBox**, 
-ciascuno composto da una macchina virtuale con *Apache HTTP Server*. 
+tutti basati sull'uso di *strumenti per la gestione di ambienti virtuali* 
+come **Vagrant** e **Oracle VM VirtualBox**. 
+Ciascuno di questi ambienti è composto da una singola macchina virtuale con *Apache HTTP Server*. 
 Nei diversi ambienti, il provisioning della macchina virtuale viene effettuato in tre modi differenti. 
 
 

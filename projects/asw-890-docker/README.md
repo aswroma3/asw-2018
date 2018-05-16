@@ -8,7 +8,7 @@ In particolare, ci sono tre progetti Docker:
 * il contenitore **a-hello-world**, che quando avviato mostra un saluto 
 
 * il contenitore **b-apache-http-server** per un server HTTP 
-  (che pubblica le pagine HTML nella cartella [`~/projects/www`](../../projects/www/) `~/projects/www` dell'host) 
+  (che pubblica le pagine HTML nella cartella [`~/projects/www/`](../../projects/www/) `~/projects/www/` dell'host) 
 
 * il contenitore **c-data-volume**, che gestisce un volume di pagine HTML da pubblicare con il server HTTP, alternativo al progetto precedente 
 

@@ -114,11 +114,11 @@ ed è descritta nell'ambito dei singoli progetti.
 <!---
 -->
 
-<!---
 ## Progetti Docker 
 
-* [asw-650-docker](asw-650-docker/): esempi di *contenitori Docker* 
+* [asw-890-docker](asw-890-docker/): esempi di *contenitori Docker* 
 
+<!---
 * [asw-655-docker-composizione](asw-655-docker-composizione/): composizione e orchestrazione di *contenitori Docker* 
 
 * [asw-660-docker-su-swarm](asw-660-docker-su-swarm/): rilascio di un'applicazione multi-servizi e multi-contenitori sullo swarm *swarm.inf.uniroma3.it*

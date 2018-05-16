@@ -60,10 +60,10 @@ E' anche possibile:
 * [glassfish-payara5](glassfish-payara5/): 
   per l'esecuzione di applicazioni Java EE con l'application server *GlassFish* (*Payara 5*)
   
-<!---
 * [docker](docker/): 
   per la gestione e l'esecuzione di contenitori *Docker*  
 
+<!---
 * [docker-swarm](docker-swarm/): 
   per la gestione e l'esecuzione di un cluster (*swarm*) di nodi *Docker*  
 

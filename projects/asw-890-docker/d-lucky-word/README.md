@@ -6,14 +6,14 @@ in un contenitore Docker.
 ### Build (Java)  
 
 Per prima cosa, è necessario effettuare il build dell'applicazione con Gradle,  
-nell'ambiente [developer](../../environments/developer/): 
+nell'ambiente [developer](../../../environments/developer/): 
 
 * eseguire `gradle build` nella cartella del sottoprogetto 
 
 ### Esecuzione (Docker)  
 
 Poi bisogna costruire e mandare in esecuzione l'applicazione in un contenitore Docker, 
-operando come segue nell'ambiente [docker](../../environments/docker/) 
+operando come segue nell'ambiente [docker](../../../environments/docker/) 
 (sempre essendo posizionati nella cartella del sotto progetto): 
 
 * eseguire il comando `docker build --rm -t lucky-word-img .` 

@@ -1,0 +1,122 @@
+# 
+# Vagrantfile per un cluster (swarm) di nodi (docker), su cui è installato Docker e Docker Compose. 
+# Basata su Ubunty 16.04 LTS. 
+# 
+
+VAGRANTFILE_API_VERSION = "2"
+
+$swarm_num_nodes = 3
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    # Configurazioni comuni.
+
+    # Ubuntu 16.04 LTS 64 bit VirtualBox (Bento)
+    config.vm.box = "bento/ubuntu-16.04"
+    # config.vm.box_url = "https://app.vagrantup.com/bento/boxes/ubuntu-16.04"
+
+    # folder per i progetti Asw (/home/asw/projects)
+    config.vm.synced_folder "../../projects/", "/home/asw/projects", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per le risorse condivise per gli ambienti Asw (/home/asw/_shared/resources e /home/asw/_shared/scripts) 
+    config.vm.synced_folder "../_shared/", "/home/asw/_shared", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per i dati condivisi per gli ambienti Asw (/home/asw/data) 
+	# usato per un volume per il registry swarm 
+    config.vm.synced_folder "../../data/", "/home/asw/data", :mount_options => ["dmode=777", "fmode=777"]
+
+    #
+    # Configurazione dei nodi "swarm-i", che prevedono: 
+    # - Docker 
+    # - Docker-compose 	
+    #
+    $swarm_num_nodes.downto(1).each do |i| 
+        config.vm.define vm_name = "swarm-%01d" % [i] do |node|
+			node.vm.hostname = vm_name    
+
+            ip = "10.11.1.#{70+i}"
+            node.vm.network "private_network", ip: ip, virtualbox__intnet: true
+#            node.vm.network "private_network", ip: ip, virtualbox__intnet: "docker-swarm-network"
+
+			node.vm.provider "virtualbox" do |v| 
+	            v.memory = 2048 
+				v.cpus = 2
+				v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+			end 
+
+			node.vm.network "forwarded_port", guest: 22, host: 2211, id: 'ssh', auto_correct: true
+			node.ssh.forward_agent = true
+			# node.ssh.forward_x11 = true
+ 
+			# 8080 -> 808i per evitare conflitti sulla porta 8080 con altre vm (e.g., developer) 
+			node.vm.network "forwarded_port", guest: 8080, host: "#{8080+i}", id: 'http', auto_correct: true
+
+			# installa docker e docker compose 
+			node.vm.provision :shell, path: "../_shared/scripts/setup-docker.sh"
+			node.vm.provision :shell, path: "../_shared/scripts/setup-docker-compose.sh"
+			node.vm.provision :shell, path: "../_shared/scripts/setup-swarm-hosts.sh"
+
+			# abilita l'accesso remoto sui nodi (non serve, grazie al file override.conf) 
+			### node.vm.provision :shell, path: "../_shared/scripts/setup-swarm-remote-access.sh"
+			
+			# crea lo swarm sul nodo 1 (e avvia anche il registry per lo swarm)
+			if i==1 
+			  node.vm.provision :shell, path: "../_shared/scripts/start-swarm.sh"
+			  node.vm.provision :shell, path: "../_shared/scripts/start-swarm-registry.sh"
+			end
+
+			# crea un link simbolico alla cartella dei progetti asw nella cartella dell'utente di default 
+			node.vm.provision :shell, :inline => 'ln -s /home/asw/projects projects'
+
+			config.vm.provision :shell, 
+				inline: "echo  'configurazione di questo nodo swarm completa'"
+			
+		end 
+    end
+
+    #
+    # Configurazione del nodo "dev", che prevede: 
+    # - Docker e Docker-compose 
+	# - Java, Gradle e Maven 
+    #
+    config.vm.define "dev" do |node|
+        node.vm.hostname = "dev"  
+
+        node.vm.network "private_network", ip: "10.11.1.41", virtualbox__intnet: true
+#       node.vm.network "private_network", ip: "10.11.1.41", virtualbox__intnet: "docker-swarm-network"
+
+		node.vm.provider "virtualbox" do |v| 
+            v.memory = 1024 
+			v.cpus = 1
+			v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+		end 
+
+		node.vm.network "forwarded_port", guest: 22, host: 2221, id: 'ssh', auto_correct: true
+		node.ssh.forward_agent = true
+		# node.ssh.forward_x11 = true
+ 
+		# port forwarding (attenzione al possibile conflitto con l'ambiente developer)
+		node.vm.network "forwarded_port", guest: 8080, host: 8089, id: 'http', auto_correct: true
+
+        # installa Java, Gradle e Maven  
+        node.vm.provision :shell, :inline => 'apt-get update'
+        node.vm.provision :shell, path: "../_shared/scripts/setup-java.sh"
+        node.vm.provision :shell, path: "../_shared/scripts/setup-gradle.sh"
+        node.vm.provision :shell, path: "../_shared/scripts/setup-maven.sh"
+
+		# installa docker e docker compose 
+		node.vm.provision :shell, path: "../_shared/scripts/setup-docker.sh"
+		node.vm.provision :shell, path: "../_shared/scripts/setup-docker-compose.sh"
+		node.vm.provision :shell, path: "../_shared/scripts/setup-swarm-hosts.sh"
+
+		# crea un link simbolico alla cartella dei progetti asw nella cartella dell'utente di default 
+		node.vm.provision :shell, :inline => 'ln -s /home/asw/projects projects'
+
+		config.vm.provision :shell, 
+			inline: "echo  'configurazione di questo nodo dev completa'"
+			
+    end
+
+	config.vm.provision :shell, 
+		inline: "echo  'configurazione del cluster swarm completa'"
+
+end

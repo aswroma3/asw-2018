@@ -87,9 +87,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-840-jms](asw-840-jms/): comunicazione asincrona con *Java Message Service* (*JMS*) 
 
-<!---
 * [asw-850-ejb](asw-850-ejb/): Componenti *Enterprise Java Bean* (*EJB*) 
 
+<!---
 * [asw-860-jax-ws](asw-860-jax-ws/): servizi web *SOAP* con *JAX-WS* 
 
 * [asw-870-jax-rs](asw-870-jax-rs/): servizi *REST* con *JAX-RS* 

@@ -27,7 +27,7 @@ operando come segue nell'ambiente [docker](../../../environments/docker/)
 
 Il contenitore espone il suo servizio sulla porta `8080`, 
 che è anche collegata alla porta `8080` della macchina virtuale **docker**, 
-sul path `/lucky-word` 
+sul path `/lucky-word`. 
 Pertanto, il servizio sarà accessibile nella macchina virtuale **docker** 
 all'indirizzo `localhost:8080/lucky-word` 
 (si veda lo script `run-curl-client.sh`). 

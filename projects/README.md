@@ -103,8 +103,8 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-872-spring-boot](asw-872-spring-boot/): introduzione a *Spring Boot* 
 
-<!---
 * [asw-875-spring-cloud](asw-875-spring-cloud/): introduzione a *Spring Cloud* 
+<!---
 -->
 
 ## Progetti Vagrant 

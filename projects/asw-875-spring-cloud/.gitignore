@@ -1,0 +1,5 @@
+# escludi i progetti di prova
+z*/
+
+# escludi gli script per i progetti di prova
+z*.sh

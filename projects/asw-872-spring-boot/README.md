@@ -85,7 +85,7 @@ Posizionarsi nella cartella principale dell'applicazione, `~/projects/asw-872-sp
 
 * eseguire lo script `../run-as-italian.sh` per avviare il servizio usando il profilo **italian** (la parola fortunata è *Evviva*)
 
-#### Esecuzione dell'applicazione per la generazione di frasi casuali 
+#### Esecuzione dell'applicazione **sentence** per la generazione di frasi casuali 
 
 In terminali diversi, fare quanto segue: 
 
@@ -96,6 +96,8 @@ In terminali diversi, fare quanto segue:
 * nella cartella principale del servizio **l1-word-service** eseguire lo script `../run-word-service-as-object.sh` 
 
 * nella cartella principale del servizio **l2-sentence-service** eseguire lo script `../run-sentence-service.sh` 
+
+In alternativa, nella cartella principale del progetto, eseguire lo script `run-sentence-service.sh`
 
 
 

@@ -92,7 +92,8 @@ usando gli script forniti con i singoli servizi oppure il comando `gradle bootRu
 
 In alternativa, è possibile usare gli script *di esempio* nella cartella principale del progetto. 
 
-Attenzione, l'applicazione *sentence* potrebbe richiedere un po' di tempo per partire (uno o più minuti). 
+**Attenzione**: l'applicazione *sentence* ci mette qualche minuto a partire. 
+
 
 Lo script `kill-java-processes.sh` consente di terminare tutte le applicazioni Java in esecuzione 
 (**da usare con cautela!**). 

@@ -6,9 +6,9 @@ per la realizzazione di applicazioni *multi-servizi*.
 
 Gli esempi sono relativi a due applicazioni principali: 
 
-* l'applicazione **lucky-word**  
+* l'applicazione **lucky-word**, mostrata in più versioni 
 
-* l'applicazione **sentence**, mostrata in più versioni  
+* l'applicazione **sentence**, mostrata in più versioni 
 
 
 ### Applicazione **lucky-word**
@@ -20,6 +20,10 @@ L'applicazione **lucky-word** è formata da due servizi:
 * **a2-lucky-word-cloud-config-client** è invece l'applicazione web, che accede come client al configuration server 
 
 Per eseguire questa applicazione, bisogna costruire e avviare i due servizi, come di consueto per le applicazioni Spring Boot. 
+
+Inoltre, al posto di **a2-lucky-word-cloud-config-client** 
+è possibile utilizzare l'applicazione **a3-lucky-word-cloud-config-client-refresh**, 
+in cui è abilitato il refresh dinamico della configurazione. 
 
 
 ### Applicazione **sentence**

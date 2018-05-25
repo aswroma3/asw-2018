@@ -1,0 +1,5 @@
+Consente di effettuare il refresh della configurazione (vedi lo script apposito). 
+
+Il limite di questa soluzione è che bisogna fare la richiesta post su ogni istanza del servizio in esecuzione. 
+Con Spring Cloud Bus (da provare) invece faccio la richiesta post su una sola istanza di un qualche servizio, 
+e viene propagata su tutte le istanze. 

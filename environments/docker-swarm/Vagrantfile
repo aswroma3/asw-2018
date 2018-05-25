@@ -81,8 +81,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "dev" do |node|
         node.vm.hostname = "dev"  
 
-        node.vm.network "private_network", ip: "10.11.1.41", virtualbox__intnet: true
-#       node.vm.network "private_network", ip: "10.11.1.41", virtualbox__intnet: "docker-swarm-network"
+        node.vm.network "private_network", ip: "10.11.1.81", virtualbox__intnet: true
+#       node.vm.network "private_network", ip: "10.11.1.81", virtualbox__intnet: "docker-swarm-network"
 
 		node.vm.provider "virtualbox" do |v| 
             v.memory = 1024 

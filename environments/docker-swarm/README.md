@@ -28,7 +28,7 @@ Configurazione di rete
 * Porte pubblicate sull'host: 8080 -> 8080+i (per esempio, **swarm-i** ha la porta 8080 pubblicata sulla porta 8081 dell'host)
 
 * Alias: i nodi dello swarm sono visibili (tra di loro e dal client **dev**) anche con 
-  i nomi simbolici **swarm** e **docker-registry**
+  i nomi simbolici **my-swarm** e **my-registry**
   
 ## Configurazione  
  
@@ -38,7 +38,7 @@ momento della creazione dell'ambiente (`vagrant up`).
 
 ### dev
 
-La macchina virtuale **dev** (10.11.1.41), 
+La macchina virtuale **dev** (10.11.1.81), 
 da usare come nodo per lo sviluppatore e come client dello *swarm*, 
 ha il seguente software 
 
@@ -50,10 +50,10 @@ ha il seguente software
 
 Configurazione di rete 
 
-* Indirizzo IP: 10.11.1.41 
+* Indirizzo IP: 10.11.1.81 
 
 * Porte pubblicate sull'host: nessuna
 
 * Alias: i nodi dello swarm sono visibili dal client **dev** anche con 
-  i nomi simbolici **swarm** e **docker-registry**
+  i nomi simbolici **my-swarm** e **my-registry**
 

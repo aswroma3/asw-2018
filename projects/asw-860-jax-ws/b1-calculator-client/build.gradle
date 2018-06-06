@@ -59,14 +59,16 @@ project(':generated-ws-client') {
         }
         doLast {
             ant {
-                sourceSets.main.output.classesDir.mkdirs()
+                // DEPRECATO: sourceSets.main.output.classesDir.mkdirs()
+				sourceSets.main.java.outputDir.mkdirs()
                 destDir.mkdirs()
                 taskdef(name: 'wsimport',
                         classname: 'com.sun.tools.ws.ant.WsImport',
                         classpath: configurations.jaxws.asPath
                 )
                 wsimport(keep: true,
-                        destdir: sourceSets.main.output.classesDir,
+                        // DEPRECATO: destdir: sourceSets.main.output.classesDir,
+                        destdir: sourceSets.main.java.outputDir,
                         sourcedestdir: destDir,
                         extension: "true",
                         verbose: "false",

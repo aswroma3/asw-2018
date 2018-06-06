@@ -91,9 +91,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-860-jax-ws](asw-860-jax-ws/): servizi web *SOAP* con *JAX-WS* 
 
-<!---
-* [asw-865-jax-rs](asw-870-jax-rs/): servizi *REST* con *JAX-RS* 
+* [asw-865-jax-rs](asw-865-jax-rs/): servizi web *REST* con *JAX-RS* 
 
+<!---
   nient'altro da escludere 
 -->
 

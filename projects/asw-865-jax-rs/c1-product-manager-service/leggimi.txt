@@ -1,0 +1,12 @@
+Rilascia il servizio rest ProductManagerRest 
+all'indirizzo http://10.11.1.111:8080/asw/productmanager
+- http://10.11.1.111:8080/asw/productmanager/product/{id}
+- http://10.11.1.111:8080/asw/productmanager/products
+
+Per rilasciare questo servizio: 
+- start-java-db.sh 
+- deploy-service.sh 
+
+Per rimuovere questo servizio: 
+- undeploy-service.sh 
+- stop-java-db.sh 

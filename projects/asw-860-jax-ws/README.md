@@ -1,4 +1,4 @@
-# asw-860-ws
+# asw-860-jax-ws
 
 Questo progetto contiene alcune applicazioni distribuite 
 formate da servizi web e client **SOAP**: 

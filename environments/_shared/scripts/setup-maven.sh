@@ -3,7 +3,7 @@
 source "/home/asw/_shared/scripts/common.sh"
 
 # set up Maven constants 
-MAVEN_VERSION=3.5.3
+MAVEN_VERSION=3.5.4
 
 MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin.zip
 # e.g., apache-maven-3.5.3-bin.zip

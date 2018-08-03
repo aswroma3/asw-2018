@@ -5,7 +5,7 @@ source "/home/asw/_shared/scripts/common.sh"
 # set up Gradle constants 
 # https://services.gradle.org/distributions/gradle-4.5.1-bin.zip?_ga=2.43230242.664775167.1519135756-2145482513.1518687627
 
-GRADLE_VERSION=4.5.1
+GRADLE_VERSION=4.9
 
 GRADLE_ARCHIVE=gradle-${GRADLE_VERSION}-bin.zip
 # e.g., gradle-4.5.1-bin.zip

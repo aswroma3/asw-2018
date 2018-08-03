@@ -58,7 +58,7 @@ nella cartella **dist/client** dell'applicazione).
 ## Ambiente di esecuzione 
 
 Ciascuna applicazione va eseguita nell'ambiente 
-[glassfish-payara5](../../environments/glassfish-payara5/). 
+[glassfish](../../environments/glassfish/). 
 Gli script di **0-preparazione-server** vanno eseguiti sul nodo **server**. 
 I componenti *EJB* vanno prima rilasciati sul nodo **server**. 
 Gli *application client* vanno eseguiti sul nodo **client**.

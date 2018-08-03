@@ -57,8 +57,9 @@ E' anche possibile:
 * [client-server](client-server/): 
   per l'esecuzione di applicazioni Java distribuite di tipo client-server 
 
-* [glassfish-payara5](glassfish-payara5/): 
-  per l'esecuzione di applicazioni Java EE con l'application server *GlassFish* (*Payara 5*)
+* [glassfish](glassfish/): 
+  per l'esecuzione di applicazioni Java EE con l'application server *GlassFish* 
+  (basato su *Payara 5*)
   
 * [docker](docker/): 
   per la gestione e l'esecuzione di contenitori *Docker*  

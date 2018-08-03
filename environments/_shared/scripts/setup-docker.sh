@@ -5,10 +5,12 @@ source "/home/asw/_shared/scripts/common.sh"
 # see https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 # set up Docker constants 
-DOCKER_VERSION=18.03.0~ce-0~ubuntu
+DOCKER_VERSION=18.03.1~ce-0~ubuntu
 
 # Per vedere le versioni disponibili 
 # apt-cache madison docker-ce
+# oppure https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/ 
+# vedi anche https://github.com/docker/docker-ce/releases 
 
 echo "================="
 echo "installing docker"

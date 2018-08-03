@@ -4,17 +4,17 @@ source "/home/asw/_shared/scripts/common.sh"
 
 # set up Java constants 
 JAVA_VERSION=8
-JAVA_MINOR_VERSION=171
-JAVA_BUILD=11
-JAVA_HEX=512cd62ec5174c3487ac17c61aaa89e8
+JAVA_MINOR_VERSION=181
+JAVA_BUILD=13
+JAVA_HEX=96a7b8442fe848ef90c96a2fad6ed6d1
 
-# http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz
+# http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz
 
 JAVA_FILE_NAME=jdk-${JAVA_VERSION}u${JAVA_MINOR_VERSION}-linux-x64
 JAVA_ARCHIVE=${JAVA_FILE_NAME}.tar.gz
 GET_JAVA_URL=http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_MINOR_VERSION}-b${JAVA_BUILD}/${JAVA_HEX}
 JAVA_JDK_PATH=/usr/local/jdk1.${JAVA_VERSION}.0_${JAVA_MINOR_VERSION} 
-# e.g., /usr/local/jdk1.8.0_161
+# e.g., /usr/local/jdk1.8.0_181
 JAVA_JRE_PATH=/usr/lib/jvm/jre 
 
 function installLocalJava {
